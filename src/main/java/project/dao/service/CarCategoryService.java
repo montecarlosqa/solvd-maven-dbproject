@@ -18,19 +18,18 @@ public class CarCategoryService implements Service<CarCategory>{
     }
 
     @Override
-    public List<CarCategory> findAll() {
-        return carCategoryDAO.findAll();
+    public void findAll() {
+        carCategoryDAO.findAll();
     }
 
     @Override
-    public boolean save(CarCategory carCategory) {
-
-        return carCategoryDAO.save(carCategory);
+    public void save(CarCategory carCategory) {
+        carCategoryDAO.save(carCategory);
     }
 
     @Override
-    public boolean update(CarCategory entity) {
-        return false;
+    public void update(CarCategory carCategory) {
+        carCategoryDAO.update(carCategory);
     }
 
     @Override

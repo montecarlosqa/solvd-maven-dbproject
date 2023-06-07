@@ -9,10 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -42,23 +39,21 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
     }
 
     @Override
-    public List<CarCategory> findAll() {
-        List<CarCategory> carCategories = new ArrayList<>();
-        try (Connection connection = connectionPool.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM car_category")) {
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()){
-                CarCategory carCategory = new CarCategory();
-                carCategories.add(carCategory);
+    public void findAll() {
+        try(Connection connection = connectionPool.getConnection()){
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM car_category");
+            while(resultSet.next()){
+                CarCategory carCategory = getCarCategoryFromResultSet(resultSet);
+                System.out.print(carCategory);
             }
-        } catch (SQLException e) {
+        }catch (Exception e){
 
         }
-        return carCategories;
     }
 
     @Override
-    public boolean save(CarCategory carCategory) {
+    public void save(CarCategory carCategory) {
         try (Connection connection = connectionPool.getConnection();
              PreparedStatement statement = connection.prepareStatement("INSERT INTO car_category (id, category_name, rental_value) values (?, ?,?)")) {
             statement.setInt(1, carCategory.getId());
@@ -68,23 +63,20 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
         } catch (SQLException e) {
 
         }
-        return false;
     }
 
     @Override
-    public boolean update(CarCategory carCategory) {
-        try (Connection connection = connectionPool.getConnection();
-             PreparedStatement statement = connection.prepareStatement("UPDATE car_category SET id = ?,  category_name = ?, rental_value = ? WHERE id = ?")) {
-            statement.setInt(1, carCategory.getId());
-            statement.setString(2, carCategory.getCategoryName());
-            statement.setDouble(3, carCategory.getRentalValue());
+    public void update(CarCategory carCategory) {
+        try(Connection connection = connectionPool.getConnection()){
+            PreparedStatement statement = connection.prepareStatement("UPDATE car_category SET category_name = ?, rental_value = ? WHERE id = ?");
+            statement.setString(1, carCategory.getCategoryName());
+            statement.setDouble(2, carCategory.getRentalValue());
+            statement.setInt(3, carCategory.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
 
         }
-        return false;
     }
-
 
     @Override
     public void delete(int id) {
@@ -118,7 +110,9 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
         ConnectionPool dbConnection = new ConnectionPool(props.getProperty("db.url"),props.getProperty("db.user"),props.getProperty("db.password"), 1);
 
         CarCategoryDAO category = new CarCategoryDAO(dbConnection);
-        category.save(new CarCategory(7,"secondTest",45));
+        category.update(new CarCategory(6, "Pickup", 34.99));
+
+
 
     }
 }
