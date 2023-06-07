@@ -1,4 +1,4 @@
-package project.dao.model;
+package project.model;
 
 public class CarCategory {
 

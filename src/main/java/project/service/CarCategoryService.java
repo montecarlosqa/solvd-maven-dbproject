@@ -1,9 +1,7 @@
-package project.dao.service;
+package project.service;
 
-import project.dao.model.CarCategory;
-import project.dao.utils.GenericDAO;
-
-import java.util.List;
+import project.model.CarCategory;
+import project.utils.GenericDAO;
 
 public class CarCategoryService implements Service<CarCategory>{
     private final GenericDAO<CarCategory> carCategoryDAO;

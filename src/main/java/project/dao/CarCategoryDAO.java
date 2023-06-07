@@ -1,17 +1,15 @@
-package project.dao.service;
+package project.dao;
 
-import project.dao.model.CarCategory;
-import project.dao.utils.AbstractDAO;
-import project.dao.utils.ConnectionPool;
-import project.dao.utils.GenericDAO;
+import project.model.CarCategory;
+import project.model.Location;
+import project.utils.AbstractDAO;
+import project.utils.ConnectionPool;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 public class CarCategoryDAO extends AbstractDAO<CarCategory> {
@@ -109,8 +107,11 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
 
         ConnectionPool dbConnection = new ConnectionPool(props.getProperty("db.url"),props.getProperty("db.user"),props.getProperty("db.password"), 1);
 
-        CarCategoryDAO category = new CarCategoryDAO(dbConnection);
-        category.update(new CarCategory(6, "Pickup", 34.99));
+//        CarCategoryDAO category = new CarCategoryDAO(dbConnection);
+//        category.findAll();
+
+        LocationDao locationDao = new LocationDao(dbConnection);
+        locationDao.delete(6);
 
 
 

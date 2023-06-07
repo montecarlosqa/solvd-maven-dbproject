@@ -1,4 +1,4 @@
-package project.dao.utils;
+package project.utils;
 
 import java.net.CookieHandler;
 import java.sql.*;

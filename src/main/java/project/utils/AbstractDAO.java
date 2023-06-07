@@ -1,4 +1,4 @@
-package project.dao.utils;
+package project.utils;
 
 public abstract class AbstractDAO<T> implements GenericDAO<T>{
 
