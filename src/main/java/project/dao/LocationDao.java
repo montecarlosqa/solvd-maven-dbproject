@@ -88,6 +88,21 @@ public class LocationDao extends AbstractDAO<Location> {
         }
     }
 
+    public int getCurrentLocationByCarId(int id) {
+        int currentLocation = 0;
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT current_location_id FROM car WHERE id = ?")) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                currentLocation =resultSet.getInt("current_location_id");
+            }
+        } catch (SQLException e) {
+
+        }
+        return currentLocation;
+    }
+
     private Location getLocationFromResultSet(ResultSet resultSet) throws SQLException{
         Location location = new Location();
         location.setId(resultSet.getInt("id"));

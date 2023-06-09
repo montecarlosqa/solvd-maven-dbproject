@@ -1,7 +1,6 @@
 package project.dao;
 
 import project.model.CarCategory;
-import project.model.Location;
 import project.utils.AbstractDAO;
 import project.utils.ConnectionPool;
 
@@ -87,6 +86,21 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
         }
     }
 
+//    public int getCarCategoryByCarId(int id) {
+//        int carCategoryId = 0;
+//        try (Connection connection = connectionPool.getConnection();
+//             PreparedStatement statement = connection.prepareStatement("SELECT car_category_id FROM car where id =?")) {
+//            statement.setInt(1, id);
+//            ResultSet resultSet = statement.executeQuery();
+//            if (resultSet.next()) {
+//                carCategoryId =resultSet.getInt("car_category_id");
+//            }
+//        } catch (SQLException e) {
+//
+//        }
+//        return carCategoryId;
+//    }
+
     private CarCategory getCarCategoryFromResultSet(ResultSet resultSet) throws SQLException{
         CarCategory carCategory = new CarCategory();
         carCategory.setId(resultSet.getInt("id"));
@@ -107,13 +121,8 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
 
         ConnectionPool dbConnection = new ConnectionPool(props.getProperty("db.url"),props.getProperty("db.user"),props.getProperty("db.password"), 1);
 
-//        CarCategoryDAO category = new CarCategoryDAO(dbConnection);
-//        category.findAll();
-
-        LocationDao locationDao = new LocationDao(dbConnection);
-        locationDao.delete(6);
-
-
+        CarCategoryDAO category = new CarCategoryDAO(dbConnection);
+        category.update(new CarCategory(6,"Pickup", 37.99));
 
     }
 }

@@ -1,0 +1,10 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="carcategory">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="categoryName" type="xs:string" />
+                <xs:element name="rentalValue" type="xs:float" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

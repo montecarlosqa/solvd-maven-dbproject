@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<insurance>
+    <insuranceName>Mercury</insuranceName>
+    <description>Overall, Mercury has the most affordable rates for drivers with a recent ticket, accident or DUI.</description>
+    <cost>65.0</cost>
+</insurance>

@@ -1,0 +1,11 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="insurance">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="insuranceName" type="xs:string" />
+                <xs:element name="description" type="xs:string" />
+                <xs:element name="cost" type="xs:float" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

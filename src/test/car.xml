@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<car>
+    <carcategory>
+        <categoryName>Compact</categoryName>
+        <rentalValue>36.50</rentalValue>
+    </carcategory>
+    <brand>Toyota</brand>
+    <model>Tacoma</model>
+    <productionYear>2002</productionYear>
+    <mileage>17600</mileage>
+    <color>Black</color>
+    <currentlocation>
+        <streetAddress>Lyons Circle</streetAddress>
+        <city>Huntington Beach</city>
+        <state>California</state>
+        <country>United states</country>
+        <zip>92647</zip>
+    </currentlocation>
+</car>

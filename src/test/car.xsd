@@ -1,0 +1,32 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="car">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="carcategory">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="categoryName"/>
+                            <xs:element type="xs:float" name="rentalValue"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element type="xs:string" name="brand"/>
+                <xs:element type="xs:string" name="model"/>
+                <xs:element type="xs:short" name="productionYear"/>
+                <xs:element type="xs:short" name="mileage"/>
+                <xs:element type="xs:string" name="color"/>
+                <xs:element name="currentlocation">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="streetAddress"/>
+                            <xs:element type="xs:string" name="city"/>
+                            <xs:element type="xs:string" name="state"/>
+                            <xs:element type="xs:string" name="country"/>
+                            <xs:element type="xs:int" name="zip"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
