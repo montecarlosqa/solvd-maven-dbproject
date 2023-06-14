@@ -86,43 +86,11 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
         }
     }
 
-//    public int getCarCategoryByCarId(int id) {
-//        int carCategoryId = 0;
-//        try (Connection connection = connectionPool.getConnection();
-//             PreparedStatement statement = connection.prepareStatement("SELECT car_category_id FROM car where id =?")) {
-//            statement.setInt(1, id);
-//            ResultSet resultSet = statement.executeQuery();
-//            if (resultSet.next()) {
-//                carCategoryId =resultSet.getInt("car_category_id");
-//            }
-//        } catch (SQLException e) {
-//
-//        }
-//        return carCategoryId;
-//    }
-
     private CarCategory getCarCategoryFromResultSet(ResultSet resultSet) throws SQLException{
         CarCategory carCategory = new CarCategory();
         carCategory.setId(resultSet.getInt("id"));
         carCategory.setCategoryName(resultSet.getString("category_name"));
         carCategory.setRentalValue(resultSet.getDouble("rental_value"));
         return carCategory;
-    }
-
-    public static void main(String[] args) throws SQLException{
-        Properties props = new Properties();
-        try(InputStream input = new FileInputStream("src/main/resources/db.properties")){
-            props.load(input);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        ConnectionPool dbConnection = new ConnectionPool(props.getProperty("db.url"),props.getProperty("db.user"),props.getProperty("db.password"), 1);
-
-        CarCategoryDAO category = new CarCategoryDAO(dbConnection);
-        category.update(new CarCategory(6,"Pickup", 37.99));
-
     }
 }

@@ -136,15 +136,15 @@ public class XMLValidation {
     }
 
     public static void main(String[] args) throws SQLException {
-//
-//        String xmlLocationFilePath = "src/test/location.xml";
-//
-//        boolean isLocationValid = validateXMLSchema(xmlLocationFilePath);
-//        System.out.println("XML validation result: " + isLocationValid);
-//
-//        if(isLocationValid){
-//            parseLocationXMLWithDOM(xmlLocationFilePath);
-//        }
+
+        String xmlLocationFilePath = "src/test/location.xml";
+
+        boolean isLocationValid = validateXMLSchema(xmlLocationFilePath);
+        System.out.println("XML validation result: " + isLocationValid);
+
+        if(isLocationValid){
+            parseLocationXMLWithDOM(xmlLocationFilePath);
+        }
 //        System.out.println("\n--------------------------------");
 //
 //        String xmlCarCategoryFilePath = "src/test/CarCategory.xml";
@@ -167,6 +167,16 @@ public class XMLValidation {
 //        }
 //        System.out.println("\n--------------------------------");
 //
+//        String xmlInsuranceFilePath = "src/test/insurance.xml";
+//
+//        boolean isInsuranceValid = validateXMLSchema(xmlInsuranceFilePath);
+//        System.out.println("XML validation result: " + isInsuranceValid);
+//
+//        if(isInsuranceValid){
+//            parseInsuranceXMLWithDOM(xmlInsuranceFilePath);
+//        }
+//        System.out.println("\n--------------------------------");
+//
 //        String xmlCarFilePath = "src/test/car.xml";
 //
 //        boolean isCarValid = validateXMLSchema(xmlCarFilePath);
@@ -175,16 +185,5 @@ public class XMLValidation {
 //        if(isCarValid){
 //            parseCarXMLWithDOM(xmlCarFilePath);
 //        }
-        System.out.println("\n--------------------------------");
-
-        String xmlInsuranceFilePath = "src/test/insurance.xml";
-
-        boolean isInsuranceValid = validateXMLSchema(xmlInsuranceFilePath);
-        System.out.println("XML validation result: " + isInsuranceValid);
-
-        if(isInsuranceValid){
-            parseInsuranceXMLWithDOM(xmlInsuranceFilePath);
-        }
-
     }
 }

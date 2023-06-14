@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<car>
+    <brand>Toyota</brand>
+    <model>Tacoma</model>
+    <productionYear>2002</productionYear>
+    <mileage>17600</mileage>
+    <color>Black</color>
+    <currentLocation>
+        <streetAddress>32040 Lyons circle</streetAddress>
+        <city>Huntington Beach</city>
+        <state>California</state>
+        <country>United States</country>
+        <zip>92801</zip>
+    </currentLocation>
+    <equipments id="1">
+        <equipment>Booster seat</equipment>
+    </equipments>
+    <equipments id="2">
+        <equipment>GPS</equipment>
+    </equipments>
+    <equipments id="3">
+        <equipment>Toddler seat</equipment>
+    </equipments>
+</car>
