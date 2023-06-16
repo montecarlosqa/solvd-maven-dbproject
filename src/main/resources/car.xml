@@ -2,7 +2,7 @@
 <car>
     <brand>Toyota</brand>
     <model>Tacoma</model>
-    <productionYear>2002</productionYear>
+    <productionDate>2023-06-16T14:33:59.092-07:00</productionDate>
     <mileage>17600</mileage>
     <color>Black</color>
     <currentLocation>

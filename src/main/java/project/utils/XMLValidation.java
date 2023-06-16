@@ -13,6 +13,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class XMLValidation {
+    public static void getIndentLine(){
+        System.out.println("----------------------");
+    }
 
     private static boolean validateXMLSchema(String xmlFilePath){
         try{
@@ -137,25 +140,25 @@ public class XMLValidation {
 
     public static void main(String[] args) throws SQLException {
 
-        String xmlLocationFilePath = "src/test/location.xml";
-
-        boolean isLocationValid = validateXMLSchema(xmlLocationFilePath);
-        System.out.println("XML validation result: " + isLocationValid);
-
-        if(isLocationValid){
-            parseLocationXMLWithDOM(xmlLocationFilePath);
-        }
-//        System.out.println("\n--------------------------------");
+//        String xmlLocationFilePath = "src/test/location.xml";
 //
-//        String xmlCarCategoryFilePath = "src/test/CarCategory.xml";
+//        boolean isLocationValid = validateXMLSchema(xmlLocationFilePath);
+//        System.out.println("XML validation result: " + isLocationValid);
+//
+//        if(isLocationValid){
+//            parseLocationXMLWithDOM(xmlLocationFilePath);
+//        }
+//        getIndentLine();
+//
+//        String xmlCarCategoryFilePath = "src/test/carcategory.xml";
 //
 //        boolean isCarCategoryValid = validateXMLSchema(xmlCarCategoryFilePath);
 //        System.out.println("XML validation result: " + isCarCategoryValid);
 //
 //        if(isCarCategoryValid){
-//            parseLocationXMLWithDOM(xmlCarCategoryFilePath);
+//            parseCarCategoryXMLWithDOM(xmlCarCategoryFilePath);
 //        }
-//        System.out.println("\n--------------------------------");
+//        getIndentLine();
 //
 //        String xmlCustomerFilePath = "src/test/customer.xml";
 //
@@ -165,7 +168,7 @@ public class XMLValidation {
 //        if(isCustomerValid){
 //            parseCustomerXMLWithDOM(xmlCustomerFilePath);
 //        }
-//        System.out.println("\n--------------------------------");
+//        getIndentLine();
 //
 //        String xmlInsuranceFilePath = "src/test/insurance.xml";
 //
@@ -175,7 +178,7 @@ public class XMLValidation {
 //        if(isInsuranceValid){
 //            parseInsuranceXMLWithDOM(xmlInsuranceFilePath);
 //        }
-//        System.out.println("\n--------------------------------");
+//        getIndentLine();
 //
 //        String xmlCarFilePath = "src/test/car.xml";
 //

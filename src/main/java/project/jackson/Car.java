@@ -1,44 +1,54 @@
-package project.jaxb;
+package project.jackson;
 
-import project.dao.CarCategoryDAO;
-import project.model.CarCategory;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.security.PublicKey;
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Car {
-    @XmlElement
+    @JsonProperty("id")
+    private int id;
+    @JsonProperty("car category")
+    private CarCategory carCategory;
+    @JsonProperty("brand")
     private String brand;
-    @XmlElement
+    @JsonProperty("model")
     private String model;
-    @XmlElement
-    private Date productionDate;
-    @XmlElement
+    @JsonProperty("production year")
+    private int productionYear;
+    @JsonProperty("mileage")
     private int mileage;
-    @XmlElement
+    @JsonProperty("color")
     private String color;
-    @XmlElement
+    @JsonProperty("current location")
     private Location currentLocation;
-    @XmlElement
-    private List<Equipment> equipments;
 
     public Car(){}
 
-    public Car(String brand, String model, Date productionDate, int mileage, String color, Location currentLocation, List<Equipment> equipments) {
+    public Car(int id, CarCategory carCategory, String brand, String model, int productionYear, int mileage, String color, Location currentLocation) {
+        this.id = id;
+        this.carCategory = carCategory;
         this.brand = brand;
         this.model = model;
-        this.productionDate = productionDate;
+        this.productionYear = productionYear;
         this.mileage = mileage;
         this.color = color;
         this.currentLocation = currentLocation;
-        this.equipments = equipments;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public CarCategory getCarCategory() {
+        return carCategory;
+    }
+
+    public void setCarCategory(CarCategory carCategory) {
+        this.carCategory = carCategory;
     }
 
     public String getBrand() {
@@ -57,12 +67,12 @@ public class Car {
         this.model = model;
     }
 
-    public Date getProductionDate() {
-        return productionDate;
+    public int getProductionYear() {
+        return productionYear;
     }
 
-    public void setProductionDate(Date productionDate) {
-        this.productionDate = productionDate;
+    public void setProductionYear(int productionYear) {
+        this.productionYear = productionYear;
     }
 
     public int getMileage() {
@@ -89,24 +99,17 @@ public class Car {
         this.currentLocation = currentLocation;
     }
 
-    public List<Equipment> getEquipments() {
-        return equipments;
-    }
-
-    public void setEquipments(List<Equipment> equipments) {
-        this.equipments = equipments;
-    }
-
     @Override
     public String toString() {
         return "Car{" +
-                "brand='" + brand + '\'' +
+                "id=" + id +
+                ", carCategory=" + carCategory +
+                ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", productionDate=" + productionDate +
+                ", productionYear=" + productionYear +
                 ", mileage=" + mileage +
                 ", color='" + color + '\'' +
                 ", currentLocation=" + currentLocation +
-                ", equipments=" + equipments +
                 '}';
     }
 }

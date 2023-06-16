@@ -1,8 +1,13 @@
-package project.model;
+package project.jackson;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CarCategory {
+    @JsonProperty("id")
     private int id;
+    @JsonProperty("category name")
     private String categoryName;
+    @JsonProperty("rental value")
     private double rentalValue;
 
     public CarCategory(){};
