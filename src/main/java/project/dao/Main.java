@@ -1,6 +1,7 @@
 package project.dao;
 
 import project.model.CarCategory;
+import project.model.Location;
 import project.utils.ConnectionPool;
 
 import java.io.FileInputStream;
@@ -11,6 +12,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Main {
+    public static void getIndentLine(){
+        System.out.println("---------------------");
+    }
     public static void main(String[] args) throws SQLException {
         Properties props = new Properties();
         try(InputStream input = new FileInputStream("src/main/resources/db.properties")){
@@ -23,11 +27,22 @@ public class Main {
 
         ConnectionPool dbConnection = new ConnectionPool(props.getProperty("db.url"),props.getProperty("db.user"),props.getProperty("db.password"), 1);
 
-//        CarCategoryDAO category = new CarCategoryDAO(dbConnection);
-//        category.update(new CarCategory(6,"Pick up", 35.99));
+        //Creation of car category dao object and implementing all the CRUD operations
+        CarCategoryDAO carCategoryDAO = new CarCategoryDAO(dbConnection);
+        carCategoryDAO.findAll();
+        carCategoryDAO.findById(1);
+        carCategoryDAO.update(new CarCategory(6,"Pick up", 33.99));
+        carCategoryDAO.save(new CarCategory(7,"Test", 35.99));
+        carCategoryDAO.delete(13);
+        getIndentLine();
+        //Creation of location dao object and implementing all the CRUD operations
+        LocationDao locationDao = new LocationDao(dbConnection);
+        locationDao.findAll();
+        locationDao.findById(1);
+        locationDao.update(new Location(8,"Location","city","state","country","zip"));
+        locationDao.save(new Location(9,"newLocation","city","state","country","zip"));
+        locationDao.delete(9);
 
-        LocationDao location = new LocationDao(dbConnection);
-        System.out.println(location.findById(1));
 
     }
 }

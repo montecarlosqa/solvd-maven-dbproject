@@ -179,14 +179,14 @@ public class XMLValidation {
 //            parseInsuranceXMLWithDOM(xmlInsuranceFilePath);
 //        }
 //        getIndentLine();
-//
-//        String xmlCarFilePath = "src/test/car.xml";
-//
-//        boolean isCarValid = validateXMLSchema(xmlCarFilePath);
-//        System.out.println("XML validation result: " + isCarValid);
-//
-//        if(isCarValid){
-//            parseCarXMLWithDOM(xmlCarFilePath);
-//        }
+
+        String xmlCarFilePath = "src/test/car.xml";
+
+        boolean isCarValid = validateXMLSchema(xmlCarFilePath);
+        System.out.println("XML validation result: " + isCarValid);
+
+        if(isCarValid){
+            parseCarXMLWithDOM(xmlCarFilePath);
+        }
     }
 }

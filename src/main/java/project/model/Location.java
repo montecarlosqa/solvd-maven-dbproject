@@ -10,6 +10,15 @@ public class Location {
     private String zip;
 
     public Location(){}
+
+    public Location(String streetAddress, String city, String state, String country, String zip) {
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+        this.zip = zip;
+    }
+
     public Location(int id, String streetAddress, String city, String state, String country, String zip) {
         this.id = id;
         this.streetAddress = streetAddress;

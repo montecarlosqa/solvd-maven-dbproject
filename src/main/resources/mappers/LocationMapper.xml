@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.mapper.LocationMapper">
+    <select id="selectLocationById" resultMap="project.mapper.LocationMapper.locationResultMap">
+        select * from location where id = #{id}
+    </select>
+
+    <resultMap id="locationResultMap" type="project.model.Location" autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="streetAddress" column="street_address"/>
+        <result property="city" column="city"/>
+        <result property="state" column="state"/>
+        <result property="country" column="country"/>
+        <result property="zip" column="zip"/>
+    </resultMap>
+
+    <insert id="addLocation">
+        insert into location (street_address, city, state, country, zip) values (#{streetAddress}, #{city}, #{state}, #{country}, #{zip})
+    </insert>
+</mapper>

@@ -37,8 +37,8 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
 
     @Override
     public void findAll() {
-        try(Connection connection = connectionPool.getConnection()){
-            Statement statement = connection.createStatement();
+        try(Connection connection = connectionPool.getConnection();
+            Statement statement = connection.createStatement()){
             ResultSet resultSet = statement.executeQuery("SELECT * FROM car_category");
             while(resultSet.next()){
                 CarCategory carCategory = getCarCategoryFromResultSet(resultSet);

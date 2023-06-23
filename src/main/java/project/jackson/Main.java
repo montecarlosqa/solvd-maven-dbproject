@@ -16,18 +16,19 @@ public class Main {
         Car car = new Car(1, carCategory, "Toyota", "Tacoma", 2002, 17600, "Black", location);
 
         try {
+            //ObjectMapper to convert the object to json format.
             ObjectMapper locationObjectMapper = new ObjectMapper();
             String locationJson = locationObjectMapper.writeValueAsString(location);
             System.out.println(locationJson);
-
-            Location deseralizedLocation = locationObjectMapper.readValue(locationJson, Location.class);
-            System.out.println("Deserialized location: " + deseralizedLocation);
+            //Deserialization of the location
+            Location deserializedLocation = locationObjectMapper.readValue(locationJson, Location.class);
+            System.out.println("Deserialized location: " + deserializedLocation);
             getIndentLine();
 
             ObjectMapper carCategoryObjectMapper = new ObjectMapper();
             String carCategoryJson = carCategoryObjectMapper.writeValueAsString(carCategory);
             System.out.println(carCategoryJson);
-
+            //Deserialization of the car category
             CarCategory deserializedCarCategory = carCategoryObjectMapper.readValue(carCategoryJson, CarCategory.class);
             System.out.println("Deserialized car category: " + deserializedCarCategory);
             getIndentLine();
@@ -35,7 +36,7 @@ public class Main {
             ObjectMapper insuranceObjectMapper = new ObjectMapper();
             String insuranceJson = insuranceObjectMapper.writeValueAsString(insurance);
             System.out.println(insuranceJson);
-
+            //Deserialization of the insurance
             Insurance deserializedInsurance = insuranceObjectMapper.readValue(insuranceJson, Insurance.class);
             System.out.println("Deserialized insurance: " + deserializedInsurance);
             getIndentLine();
@@ -43,7 +44,7 @@ public class Main {
             ObjectMapper customerObjectMapper = new ObjectMapper();
             String customerJson = customerObjectMapper.writeValueAsString(customer);
             System.out.println(customerJson);
-
+            //Deserialization of the customer
             Customer deserializedCustomer = customerObjectMapper.readValue(customerJson, Customer.class);
             System.out.println("Deserialized customer: " + deserializedCustomer);
             getIndentLine();
@@ -51,7 +52,7 @@ public class Main {
             ObjectMapper carObjectMapper = new ObjectMapper();
             String carJson = carObjectMapper.writeValueAsString(car);
             System.out.println(carJson);
-
+            //Deserialization of the car
             Car deserializedCar = carObjectMapper.readValue(carJson, Car.class);
             System.out.println("Deserialized car: " + deserializedCar);
             getIndentLine();

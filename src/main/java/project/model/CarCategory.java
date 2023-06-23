@@ -7,6 +7,11 @@ public class CarCategory {
 
     public CarCategory(){};
 
+    public CarCategory(String categoryName, double rentalValue) {
+        this.categoryName = categoryName;
+        this.rentalValue = rentalValue;
+    }
+
     public CarCategory(int id, String categoryName, double rentalValue) {
         this.id = id;
         this.categoryName = categoryName;
