@@ -16,7 +16,24 @@
         <result property="zip" column="zip"/>
     </resultMap>
 
+    <select id='getAllLocations' resultMap="project.mapper.LocationMapper.locationResultMap">
+        SELECT * FROM location
+    </select>
+
     <insert id="addLocation">
         insert into location (street_address, city, state, country, zip) values (#{streetAddress}, #{city}, #{state}, #{country}, #{zip})
     </insert>
+
+    <delete id = "deleteLocationById" >
+        DELETE from location WHERE id = #{id};
+    </delete>
+
+    <update id = "updateLocation">
+        UPDATE location SET street_address = #{streetAddress},
+        city = #{city},
+        state = #{state},
+        country = #{country},
+        zip = #{zip}
+        WHERE id = #{id};
+    </update>
 </mapper>

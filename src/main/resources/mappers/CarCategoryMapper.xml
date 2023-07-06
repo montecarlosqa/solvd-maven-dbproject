@@ -17,7 +17,21 @@
         <result property="rentalValue" column="rental_value"/>
     </resultMap>
 
+    <select id='getAllCarCategories' resultMap="project.mapper.CarCategoryMapper.carCategoryResultMap">
+        SELECT * FROM car_category
+    </select>
+
     <insert id="addCarCategory">
         insert into car_category (category_name, rental_value) values (#{categoryName}, #{rentalValue})
     </insert>
+
+    <delete id = "deleteCarCategoryById" >
+        DELETE from car_category WHERE id = #{id};
+    </delete>
+
+    <update id = "updateCarCategory">
+        UPDATE car_category SET category_name = #{categoryName},
+        rental_value = #{rentalValue}
+        WHERE id = #{id};
+    </update>
 </mapper>

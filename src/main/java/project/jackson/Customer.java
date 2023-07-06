@@ -11,9 +11,9 @@ public class Customer {
     @JsonProperty("first name")
     private String firstName;
     @JsonProperty("last name")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private String lastName;
     @JsonProperty("birth date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date birthDate;
     @JsonProperty("driving license no.")
     private String drivingLicenseNumber;
