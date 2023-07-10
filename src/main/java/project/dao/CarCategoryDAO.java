@@ -30,7 +30,7 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
                 carCategory = getCarCategoryFromResultSet(resultSet);
             }
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
         return carCategory;
     }
@@ -45,7 +45,7 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
                 System.out.print(carCategory);
             }
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 
@@ -58,7 +58,7 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
             statement.setDouble(3, carCategory.getRentalValue());
             statement.executeUpdate();
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -71,7 +71,7 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
             statement.setInt(3, carCategory.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -82,7 +82,7 @@ public class CarCategoryDAO extends AbstractDAO<CarCategory> {
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
     }
 

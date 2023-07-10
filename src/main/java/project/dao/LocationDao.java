@@ -31,7 +31,7 @@ public class LocationDao extends AbstractDAO<Location> {
                 location = getLocationFromResultSet(resultSet);
             }
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
         return location;
     }
@@ -46,7 +46,7 @@ public class LocationDao extends AbstractDAO<Location> {
                 System.out.print(location);
             }
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 
@@ -62,7 +62,7 @@ public class LocationDao extends AbstractDAO<Location> {
             statement.setString(6, location.getZip());
             statement.executeUpdate();
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -78,7 +78,7 @@ public class LocationDao extends AbstractDAO<Location> {
             statement.setInt(6, location.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -89,7 +89,7 @@ public class LocationDao extends AbstractDAO<Location> {
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -103,7 +103,7 @@ public class LocationDao extends AbstractDAO<Location> {
                 currentLocation =resultSet.getInt("current_location_id");
             }
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
         return currentLocation;
     }

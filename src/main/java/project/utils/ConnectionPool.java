@@ -30,7 +30,7 @@ public class ConnectionPool {
                 Connection connection = DriverManager.getConnection(url, username, password);
                 connections.add(connection);
             } catch (SQLException e) {
-
+                e.printStackTrace();
             }
         }
     }
@@ -40,7 +40,7 @@ public class ConnectionPool {
             try{
                 wait();
             }catch (InterruptedException e){
-
+                e.printStackTrace();
             }
         }
         return connections.remove(connections.size() - 1);
